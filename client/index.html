@@ -22,8 +22,8 @@
     <script>
       $(function() {
         // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
+        var library = new Songs(songData);  //Song is the collection, songData contains information pertaining to each song
+        var app = new AppModel({library: library}); //
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
