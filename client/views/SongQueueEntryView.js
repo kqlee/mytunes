@@ -7,7 +7,6 @@ var SongQueueEntryView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("render in SongQueueEntryView");    
   }
 
 });
