@@ -4,22 +4,20 @@ var SongQueue = Backbone.Collection.extend({
   model: SongModel,
 
   initialize: function() {
-    console.log(this);
-    this.on('change', function() {
-      if (this.models.length === 1) {
+    this.on('add', function() {
+      if (this.length === 1) {
+        this.playFirst();
+      }
+    });
+    this.on('ended', function() {
+      this.remove(this.at(0));
+      if (this.length > 0) {
         this.playFirst();
       }
     });
   },
 
-  //Takes in 'models' as its first argument, which is an array of objects, or just a single object
-  add: function(models) {
-    this.models.push(models);
-  },
-
   playFirst: function() {
-    console.log('played');
-    this.models.play();
   }
 
 });
